@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Michael Hertsens <michael28072000@outlook.com>"]
 description = "Crate that I use to abstract away the smtp(email-related stuff)."
 edition = "2018"
-license = "None"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 dotenv = "0.15.0"

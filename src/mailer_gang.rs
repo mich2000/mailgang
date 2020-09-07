@@ -14,7 +14,6 @@ fn get_transport(domain : &str, email : &str, pwd : &str) -> MailTransport {
         lettre::SmtpClient::new_simple(&domain.to_string())
         .expect("stmp domain is not good")
         .credentials(Credentials::new(email.to_string(),pwd.to_string()))
-        .connection_reuse(ConnectionReuseParameters::NoReuse)
         .transport()
     )
 }

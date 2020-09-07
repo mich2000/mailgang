@@ -1,5 +1,6 @@
 use lettre_email::EmailBuilder;
 
+#[derive(Clone)]
 pub struct Report {
     recipient : String,
     alias : String,

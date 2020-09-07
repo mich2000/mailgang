@@ -1,8 +1,9 @@
 #[macro_use] extern crate log;
 
-pub extern crate lettre;
-pub extern crate lettre_email;
+extern crate lettre;
+extern crate lettre_email;
+
+mod util;
 
 pub mod mail_struct;
-pub mod util;
 pub mod mailer_gang;

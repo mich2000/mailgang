@@ -1,6 +1,5 @@
 use lettre::{ SmtpTransport, Transport };
 use lettre::smtp::authentication::Credentials;
-use lettre::smtp::ConnectionReuseParameters;
 use std::sync::Mutex;
 use crate::mail_struct::Report;
 use crate::util::get_value_from_key;
@@ -43,6 +42,10 @@ impl Mailer {
             get_transport(domain, email, pwd),
             email.to_owned()
         )
+    }
+
+    pub fn test_mail_to_self(&self) -> Result<(),&'static str> {
+        self.send_email(Report::new(self.1.clone(), "", "Test mail", "Server test")?)?
     }
 
     pub fn send_email(&self, report : Report) -> Result<(),&'static str> {

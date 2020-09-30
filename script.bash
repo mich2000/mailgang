@@ -1,0 +1,5 @@
+curl \
+-H "Content-Type: application/json" \
+-H "Authorization: bc61275136cd861f7493d31f5a1ec4a694c323c8" \
+-X POST -d '{"options":{"open_tracking":true,"click_tracking":true},"return_path":"bounces@mail.xam-xam.be","metadata":{"some_useful_metadata":"testing_sparkpost"},"substitution_data":{"signature":"Michael Hertsens"},"recipients":[{"address":{"email":"michael28072000@outlook.com","tags":["learning"],"substitution_data":{"customer_type":"Platinum","first_name":"Michael"}}}],"content":{"from":{"name":"Awesome Company","email":"testing@mail.xam-xam.be"},"subject":"My first SparkPost Transmission","reply_to":"Awesome Company ","text":"Hi {{address.first_name}}\r\nYou have just sent your first email through SparkPost!\r\nCongratulations,\r\n{{signature}}","html":"<strong>Hi {{address.first_name}},</strong><p>You have just sent your first email through SparkPost!</p><p>Congratulations!</p>{{signature}}"}}' \
+https://api.eu.sparkpost.com/api/v1/transmissions

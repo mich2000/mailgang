@@ -17,15 +17,15 @@ impl Mailer {
      * SENDER: email from where the mail will be send
      * USE_EU: Boolean to indicate if you want to use the EU version, or if not set false to use the USA version.
     */
-    fn default() -> Result<Mailer,&'static str> {
+    pub fn default() -> Result<Mailer,&'static str> {
         let api : String = util::get_value_from_key("SPARK_KEY").expect("SPARK_KEY cannot be empty, cannot send emails without api key.");
         let email_sender : String = util::get_value_from_key("SENDER").expect("SENDER cannot be empty, email must have a name");
-        let eu_version : bool = util::get_value_from_key("USE_EU").unwrap_or("false".to_owned()).eq("true");
+        let eu_version : bool = util::get_value_from_key("USE_EU").unwrap_or_else(|| "false".to_owned()).eq("true");
         if !util::control_email(&email_sender) {
             return Err("Email is not correctly built.");
         }
-        return Ok(
-            Mailer(api, email_sender.to_owned(),eu_version)
+        Ok(
+            Mailer(api, email_sender,eu_version)
         )
     }
 

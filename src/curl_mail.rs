@@ -8,6 +8,7 @@ use sparkpost::transmission::{
  * Struct used to indiciate the api key for sparkpost is and if it is the eu version or not. Also needs the email where you going to send from.
  * (api key, sender email, eu version of api)
  */
+#[derive(Clone)]
 pub struct Mailer(String, String, bool);
 
 impl Mailer {

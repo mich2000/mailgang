@@ -1,6 +1,6 @@
 [package]
 name = "mailgang"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Michael Hertsens <michael28072000@outlook.com>"]
 description = "Crate that I use to abstract away the smtp(email-related stuff)."
 edition = "2018"
